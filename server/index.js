@@ -1,4 +1,5 @@
 require('dotenv').config();
+const path = require('path');
 const express = require('express');
 const app = express();
 
@@ -10,8 +11,9 @@ const http_port = Number(process.env.HTTP_PORT);
 
 app.use(express.static('client/dist'));
 
-app.get('/', function(req, res) {
-  res.send('hello world');
+const htmlFile = path.join(__dirname, '../client', 'dist', 'index.html');
+app.get('/*', (req, res) => {
+  res.sendFile(htmlFile);
 });
 
 app.listen(http_port, () => {
