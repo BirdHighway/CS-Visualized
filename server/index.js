@@ -8,6 +8,7 @@ if (!process.env.HTTP_PORT) {
 
 const http_port = Number(process.env.HTTP_PORT);
 
+app.use(express.static('client/dist'));
 
 app.get('/', function(req, res) {
   res.send('hello world');
