@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import StackPage from './pages/stack/StackPage';
 
 export default function App() {
   return (
@@ -17,6 +18,9 @@ export default function App() {
           <Switch>
             <Route path="/about">
               <h1>About</h1>
+            </Route>
+            <Route path="/stack">
+              <StackPage />
             </Route>
             <Route path="/">
               <h1>Home</h1>
