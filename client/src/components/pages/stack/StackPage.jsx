@@ -1,8 +1,12 @@
 import React from 'react';
+import StackVisualization from './StackVisualization';
 
 const StackPage = () => {
   return (
-    <h1>Stack Page</h1>
+    <div>
+      <h1>Stack Page</h1>
+      <StackVisualization />
+    </div>
   );
 };
 
