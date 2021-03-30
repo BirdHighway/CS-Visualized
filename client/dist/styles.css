@@ -1,0 +1,17 @@
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content {
+  padding-bottom: 3rem;
+}
+
+div.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3rem;
+  text-align: center;
+}

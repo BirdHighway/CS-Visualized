@@ -6,12 +6,13 @@ import {
   Link
 } from 'react-router-dom';
 import Navbar from './Navbar';
+import Footer from './Footer';
 
 export default function App() {
   return (
     <div className="container">
       <Router>
-        <div>
+        <div id="content">
           <Navbar />
           <Switch>
             <Route path="/about">
@@ -22,6 +23,7 @@ export default function App() {
             </Route>
           </Switch>
         </div>
+        <Footer />
       </Router>
     </div>
   )
