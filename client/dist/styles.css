@@ -15,3 +15,8 @@ div.footer {
   height: 3rem;
   text-align: center;
 }
+
+svg {
+  border: 1px solid black;
+  width: 100%;
+}
