@@ -29,9 +29,18 @@ class LetterBox {
   }
 
   moveTo(position) {
+    console.log('moving');
     this.x = position.x;
     this.y = position.y;
     this.group.setAttribute('transform', 'translate(' + this.x + ', ' + this.y + ')');
+    return this;
+  }
+
+  moveLeft() {
+    this.x = this.x - 100;
+    this.y = this.y;
+    this.group.setAttribute('transform', 'translate(' + this.x + ', ' + this.y + ')');
+    return this;
   }
 
 }

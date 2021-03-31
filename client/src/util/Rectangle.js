@@ -1,16 +1,17 @@
 import Shape from './Shape';
 
-class Square extends Shape  {
-  constructor(position, fill, size) {
+class Rectangle extends Shape {
+  constructor(position, fill, width, height) {
     super(position, fill);
-    this.size = size;
+    this.width = width;
+    this.height = height;
     this.element = document.createElementNS(this.namespace, 'rect');
     this.initialize();
   }
 
   initialize() {
-    this.element.setAttribute('width', this.size);
-    this.element.setAttribute('height', this.size);
+    this.element.setAttribute('width', this.width);
+    this.element.setAttribute('height', this.height);
     this.element.setAttribute('x', this.x);
     this.element.setAttribute('y', this.y);
     this.element.setAttribute('fill', this.fill);
@@ -25,4 +26,4 @@ class Square extends Shape  {
   }
 }
 
-export default Square;
+export default Rectangle;

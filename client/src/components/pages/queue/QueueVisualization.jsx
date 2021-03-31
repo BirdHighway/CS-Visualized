@@ -4,6 +4,7 @@ import Visualize from '../../../util/Visualize';
 import Square from '../../../util/Square';
 import Group from '../../../util/Group';
 import LetterBox from '../../../util/LetterBox';
+import Rectangle from '../../../util/Rectangle';
 import QueueContents from './QueueContents';
 
 class QueueVisualization extends React.Component {
@@ -18,33 +19,71 @@ class QueueVisualization extends React.Component {
     this.svg = React.createRef();
     this.enqueue = this.enqueue.bind(this);
     this.dequeue = this.dequeue.bind(this);
+    this.svgWidth = 100;
+    this.svgHeight = 350;
+    this.boxes = [];
   }
 
   componentDidMount() {
+    const bounds = this.svg.current.getBoundingClientRect();
+    this.svgWidth = bounds.width;
+    const queueWidth = this.svgWidth - 100;
     const position = {
       x: 0,
       y: 0
     };
-    const g = new LetterBox(position)
-      .setLabel('A');
-    this.svg.current.append(g.group);
-    setTimeout(() => {
-      g.moveTo({
-        x: 400,
-        y: 200
-      })
-    }, 2000);
+    const qRect = new Rectangle(
+      { x: 50, y: 150 },
+      'pink',
+      queueWidth,
+      150
+    );
+    this.svg.current.append(qRect.element);
+    let initial = this.state.queue;
+    for (let i = 0; i < initial.length; i++) {
+      let box = this.addBlock(initial[i], i);
+      this.boxes.push(box);
+    }
   }
 
   enqueue() {
     this.setState((prevState) => {
       let nextLetter = this.ALPHABET[prevState.nextLetterIndex % 26];
+      let block = this.addBlock(nextLetter, prevState.queue.length);
+      this.boxes.push(block);
       let updated = [...prevState.queue, nextLetter];
       return {
         queue: updated,
         nextLetterIndex: prevState.nextLetterIndex + 1
       };
     })
+  }
+
+  addBlock(letter, index) {
+    const position = {
+      x: this.svgWidth - 50,
+      y: 100
+    };
+    const box = new LetterBox(position).setLabel(letter);
+    this.svg.current.append(box.group);
+    setTimeout(() => {
+      box.moveTo({
+        x: (index + 1) * 100,
+        y: 200
+      });
+    });
+    return box;
+  }
+
+  removeHead(callback) {
+    let firstNode = this.boxes.shift();
+    firstNode.moveTo({
+      x: 100,
+      y: 25
+    }).group.addEventListener('transitionend', () => {
+      console.log('transitionend');
+      callback(firstNode);
+    });
   }
 
   dequeue() {
@@ -54,6 +93,17 @@ class QueueVisualization extends React.Component {
         queue: updated
       };
     });
+    this.removeHead((letterBox) => {
+      letterBox.group.remove();
+      this.moveElementsForwards();
+    });
+  }
+
+  moveElementsForwards() {
+    console.log(this.boxes);
+    for (let i = 0; i < this.boxes.length; i++) {
+      this.boxes[i].moveLeft();
+    }
   }
 
   render() {
