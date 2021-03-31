@@ -81,26 +81,24 @@ class QueueVisualization extends React.Component {
       x: 100,
       y: 25
     }).group.addEventListener('transitionend', () => {
-      console.log('transitionend');
       callback(firstNode);
     });
   }
 
   dequeue() {
-    this.setState((prevState) => {
-      const updated = prevState.queue.slice(1);
-      return {
-        queue: updated
-      };
-    });
     this.removeHead((letterBox) => {
+      this.setState((prevState) => {
+        const updated = prevState.queue.slice(1);
+        return {
+          queue: updated
+        };
+      });
       letterBox.group.remove();
       this.moveElementsForwards();
     });
   }
 
   moveElementsForwards() {
-    console.log(this.boxes);
     for (let i = 0; i < this.boxes.length; i++) {
       this.boxes[i].moveLeft();
     }

@@ -2,7 +2,7 @@ import React from 'react';
 
 const QueueControls = (props) => {
   return (
-    <div className='row'>
+    <div className='row queue-controls'>
       <div className='col-sm'>
         <button className='btn btn-primary'
           disabled={!props.allowEnqueue}

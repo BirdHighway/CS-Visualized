@@ -29,7 +29,6 @@ class LetterBox {
   }
 
   moveTo(position) {
-    console.log('moving');
     this.x = position.x;
     this.y = position.y;
     this.group.setAttribute('transform', 'translate(' + this.x + ', ' + this.y + ')');

@@ -62,6 +62,10 @@ table.queue-contents td {
   border: 1px solid #333;
 }
 
+table.queue-contents td {
+  text-align: center;
+}
+
 table.queue-contents .row-header {
   width: 100px !important;
   text-align: right;
@@ -69,4 +73,10 @@ table.queue-contents .row-header {
 
 td.gray-out-cell {
   background-color: #aaa;
+}
+
+.queue-controls button {
+  width: 80%;
+  margin: 2rem auto;
+  display: block;
 }
