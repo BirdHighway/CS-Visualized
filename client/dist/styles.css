@@ -16,7 +16,20 @@ div.footer {
   text-align: center;
 }
 
+div.svg-container {
+  height: 600px;
+  border: 1px solid yellow;
+}
 svg {
   border: 1px solid black;
-  width: 100%;
+  width: 500px;
+  height: 500px;
+}
+
+svg * {
+  transition: all 5s;
+}
+
+svg .fill-red {
+  fill: red;
 }

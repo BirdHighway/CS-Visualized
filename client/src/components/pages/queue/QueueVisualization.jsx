@@ -1,5 +1,7 @@
 import React from 'react';
 import QueueControls from './QueueControls';
+import Visualize from '../../../util/Visualize';
+import Square from '../../../util/Square';
 
 class QueueVisualization extends React.Component {
 
@@ -15,6 +17,20 @@ class QueueVisualization extends React.Component {
   }
 
   componentDidMount() {
+    const position = {
+      x: 10,
+      y: 10
+    };
+    const square = new Square(position, 'red', 50);
+    this.svg.current.appendChild(square.element);
+
+    setTimeout(() => {
+      const newPosition = {
+        x: 150,
+        y: 300
+      };
+      square.moveTo(newPosition);
+    }, 1000);
   }
 
   enqueue() {
