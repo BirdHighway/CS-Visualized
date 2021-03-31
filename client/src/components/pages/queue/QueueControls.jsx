@@ -1,27 +1,21 @@
 import React from 'react';
 
 const QueueControls = (props) => {
-
-  const updateValue = (e) => {
-    props.updateValue(e.target.value);
-  }
-
   return (
     <div className='row'>
       <div className='col-sm'>
-        <div className='form-group'>
-          <input className='form-control'
-            value={props.valueToAdd}
-            onChange={updateValue}
-             />
-          <button className='btn btn-primary'
-            onClick={props.enqueue}>
-            Add Value
-          </button>
-        </div>
+        <button className='btn btn-primary'
+          disabled={!props.allowEnqueue}
+          onClick={props.enqueue}>
+          Enqueue
+        </button>
       </div>
       <div className='col-sm'>
-
+        <button className='btn btn-secondary'
+          disabled={!props.allowDequeue}
+          onClick={props.dequeue}>
+          Dequeue
+        </button>
       </div>
     </div>
   );

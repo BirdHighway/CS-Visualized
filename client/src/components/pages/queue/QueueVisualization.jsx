@@ -4,18 +4,20 @@ import Visualize from '../../../util/Visualize';
 import Square from '../../../util/Square';
 import Group from '../../../util/Group';
 import LetterBox from '../../../util/LetterBox';
+import QueueContents from './QueueContents';
 
 class QueueVisualization extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      valueToAdd: '',
-      queue: ['A']
+      queue: ['A', 'B', 'C'],
+      nextLetterIndex: 3
     }
+    this.ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
     this.svg = React.createRef();
-    this.updateValueInput = this.updateValueInput.bind(this);
     this.enqueue = this.enqueue.bind(this);
+    this.dequeue = this.dequeue.bind(this);
   }
 
   componentDidMount() {
@@ -36,33 +38,35 @@ class QueueVisualization extends React.Component {
 
   enqueue() {
     this.setState((prevState) => {
-      let value = prevState.valueToAdd;
-      let updated = [...prevState.queue, value];
+      let nextLetter = this.ALPHABET[prevState.nextLetterIndex % 26];
+      let updated = [...prevState.queue, nextLetter];
       return {
         queue: updated,
-        valueToAdd: ''
+        nextLetterIndex: prevState.nextLetterIndex + 1
       };
     })
   }
 
-  updateValueInput(value) {
-    this.setState({
-      valueToAdd: value
+  dequeue() {
+    this.setState((prevState) => {
+      const updated = prevState.queue.slice(1);
+      return {
+        queue: updated
+      };
     });
   }
 
-  dequeue() {
-
-  }
-
   render() {
+    const queueContents = this.state.queue;
     return (
       <React.Fragment>
-        <svg ref={this.svg} height={'500'}/>
+        <QueueContents array={queueContents} />
+        <svg id='queue-visualization' ref={this.svg} height={'500'}/>
         <QueueControls
-          updateValue={this.updateValueInput}
           enqueue={this.enqueue}
-          valueToAdd={this.state.valueToAdd} />
+          dequeue={this.dequeue}
+          allowEnqueue={this.state.queue.length < 10}
+          allowDequeue={this.state.queue.length > 0} />
       </React.Fragment>
     );
   }
