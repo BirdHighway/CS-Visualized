@@ -8,6 +8,7 @@ import {
 import Navbar from './Navbar';
 import Footer from './Footer';
 import StackPage from './pages/stack/StackPage';
+import QueuePage from './pages/queue/QueuePage';
 
 export default function App() {
   return (
@@ -18,6 +19,9 @@ export default function App() {
           <Switch>
             <Route path="/about">
               <h1>About</h1>
+            </Route>
+            <Route path="/queue">
+              <QueuePage />
             </Route>
             <Route path="/stack">
               <StackPage />
