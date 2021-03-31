@@ -24,10 +24,24 @@ svg {
   border: 1px solid black;
   width: 500px;
   height: 500px;
+  overflow: visible;
 }
 
 svg * {
-  transition: all 5s;
+  transition: all 2.5s;
+}
+
+svg rect {
+  stroke: black;
+  stroke-width: 1px;
+}
+
+svg text {
+  font-weight: normal;
+  font-size: 3rem;
+  stroke: black;
+  alignment-baseline: middle;
+  text-anchor: middle;
 }
 
 svg .fill-red {

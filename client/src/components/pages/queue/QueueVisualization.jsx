@@ -2,6 +2,8 @@ import React from 'react';
 import QueueControls from './QueueControls';
 import Visualize from '../../../util/Visualize';
 import Square from '../../../util/Square';
+import Group from '../../../util/Group';
+import LetterBox from '../../../util/LetterBox';
 
 class QueueVisualization extends React.Component {
 
@@ -18,19 +20,18 @@ class QueueVisualization extends React.Component {
 
   componentDidMount() {
     const position = {
-      x: 10,
-      y: 10
+      x: 0,
+      y: 0
     };
-    const square = new Square(position, 'red', 50);
-    this.svg.current.appendChild(square.element);
-
+    const g = new LetterBox(position)
+      .setLabel('A');
+    this.svg.current.append(g.group);
     setTimeout(() => {
-      const newPosition = {
-        x: 150,
-        y: 300
-      };
-      square.moveTo(newPosition);
-    }, 1000);
+      g.moveTo({
+        x: 400,
+        y: 200
+      })
+    }, 2000);
   }
 
   enqueue() {
