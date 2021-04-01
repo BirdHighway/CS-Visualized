@@ -4,6 +4,7 @@ import Group from '../../../util/Group';
 import Rectangle from '../../../util/Rectangle';
 import Author from '../../shared/Author';
 import { hydeStephen } from '../../../authors';
+import VideoElement from '../../shared/VideoElement';
 
 class StackPage extends React.Component {
 
@@ -254,6 +255,7 @@ class StackPage extends React.Component {
             </div>
           </div>
         </div>
+        <VideoElement source={'https://www.youtube.com/embed/Ps12BI3W5Ws'} />
         <Author author={hydeStephen} />
       </React.Fragment>
     );
