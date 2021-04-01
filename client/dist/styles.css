@@ -220,6 +220,7 @@ div.video-player {
 
 div.video-container {
   position: relative;
+  height: 600px;
 }
 
 div.video-container .ratio {
