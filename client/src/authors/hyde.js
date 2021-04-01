@@ -6,6 +6,7 @@ const hydeStephen = {
   location: 'Cleveland, Ohio',
   interests: [
     'JavaScript',
+    'React',
     'NodeJs',
     'TypeScript',
     'Linux'

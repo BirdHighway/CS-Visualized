@@ -4,11 +4,10 @@
 }
 
 #content {
-  padding-bottom: 5rem;
+  padding-bottom: 100px;
 }
 
 div.footer {
-  background-color: #aaa;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -184,6 +183,10 @@ table.array-table td.highlight-cell {
 .author-row p,
 .author-row ul {
   font-size: 135%;
+}
+
+.author-row ul {
+  line-height: 2;
 }
 
 .author-row img {

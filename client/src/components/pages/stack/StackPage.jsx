@@ -2,6 +2,8 @@ import React from 'react';
 import ArrayTable from '../../shared/ArrayTable';
 import Group from '../../../util/Group';
 import Rectangle from '../../../util/Rectangle';
+import Author from '../../shared/Author';
+import { hydeStephen } from '../../../authors';
 
 class StackPage extends React.Component {
 
@@ -188,7 +190,37 @@ class StackPage extends React.Component {
       <React.Fragment>
         <div className='row header-row'>
           <div className='col'>
-            <h1>Data Structure: Stack</h1>
+            <h1 className='stripe-green'>Data Structure: Stack</h1>
+          </div>
+        </div>
+        <div className='descriptions'>
+          <div className='row'>
+            <div className='col'>
+              <blockquote className='blockquote stripe-blue'>
+                <p><strong>Basic Idea:</strong> Last in, first out.</p>
+              </blockquote>
+              <p>A <strong>Stack</strong> is a relatively simple data structure.
+                A stack is basically an array where items are added to the end of it and removed from the end as well.
+                Stacks are easy to implement, and they have a lot of important use cases.
+              </p>
+              <p>One of the most important use cases you may be familiar with is the call stack, made up of all the functions currently executing, with each new function that is called placed as a new item at the top of the stack. As a function completes, it "pops" off the stack, returning control to the function that originally called it.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className='row mb-2 resources'>
+          <div className='col'>
+            <h2 className='stripe-green'>Resources</h2>
+            <ul>
+              <li><a href={'#'}>Detailed Explanation of Stacks</a></li>
+              <li><a href={'#'}>Practical Applications</a></li>
+              <li><a href={'#'}>JavaScript Implementation</a></li>
+            </ul>
+          </div>
+        </div>
+        <div className='row mb-2'>
+          <div className='col'>
+            <h2 className='stripe-blue'>Visualization</h2>
           </div>
         </div>
         <div className='row'>
@@ -222,6 +254,7 @@ class StackPage extends React.Component {
             </div>
           </div>
         </div>
+        <Author author={hydeStephen} />
       </React.Fragment>
     );
   }
