@@ -60,6 +60,10 @@ div.descriptions ul {
   margin-top: 2rem;
 }
 
+div.resources {
+  margin-bottom: 3rem;
+}
+
 .about-lists-row,
 .home-lists-row {
   margin-top: 3rem;
@@ -89,6 +93,7 @@ div.svg-container {
 }
 svg {
   border: 1px solid black;
+  border-radius: .5rem;
   overflow: visible; /* change before deploying! */
 }
 
@@ -120,10 +125,9 @@ svg#queue-visualization {
   height: 350px;
 }
 
-/*table.queue-contents {
-  table-layout: fixed;
+table {
+  border-radius: .5rem;
 }
-*/
 
 table.queue-contents th,
 table.queue-contents td {

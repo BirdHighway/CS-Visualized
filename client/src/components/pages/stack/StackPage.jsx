@@ -209,7 +209,7 @@ class StackPage extends React.Component {
             </div>
           </div>
         </div>
-        <div className='row mb-2 resources'>
+        <div className='row resources'>
           <div className='col'>
             <h2 className='stripe-green'>Resources</h2>
             <ul>
