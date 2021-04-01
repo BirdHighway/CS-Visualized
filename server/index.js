@@ -11,6 +11,10 @@ const http_port = Number(process.env.HTTP_PORT);
 
 app.use(express.static('client/dist'));
 
+if (process.env.CHALLENGE_PATH) {
+  app.use('/.well-known', express.static(process.env.CHALLENGE_PATH));
+}
+
 const htmlFile = path.join(__dirname, '../client', 'dist', 'index.html');
 app.get('/*', (req, res) => {
   res.sendFile(htmlFile);
