@@ -1,7 +1,9 @@
-class Shape {
+import SvgElement from './SvgElement';
+
+class Shape extends SvgElement {
 
   constructor(position, fill) {
-    this.namespace = 'http://www.w3.org/2000/svg';
+    super();
     this.x = position.x;
     this.y = position.y;
     this.fill = fill;

@@ -34,7 +34,7 @@ class QueueVisualization extends React.Component {
     };
     const qRect = new Rectangle(
       { x: 50, y: 150 },
-      'pink',
+      '#d4edda',
       queueWidth,
       150
     );

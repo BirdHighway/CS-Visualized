@@ -1,32 +1,43 @@
-class Group {
-  constructor(position) {
-    this.namespace = 'http://www.w3.org/2000/svg';
+import { getTransform } from './functions';
+import SvgElement from './SvgElement';
+import Text from './Text';
+
+class Group extends SvgElement {
+  constructor(position, label, width, height) {
+    super();
+    this.label = label;
     this.x = position.x;
     this.y = position.y;
-    this.el = document.createElementNS(this.namespace, 'g');
-    this.el.setAttribute('fill', 'yellow');
-    this.el.setAttribute('transform', 'translate(' + this.x + ', ' + this.y + ')');
+    this.width = width;
+    this.height = height;
+    this.element = document.createElementNS(this.namespace, 'g')
+    this.setAttributes([
+      ['fill', 'yellow'],
+      ['transform', getTransform(this.x, this.y)]
+    ]);
+    this.textNode = new Text(this.label, [this.width / 2, this.height / 2, 0, 5]);
+    this.element.appendChild(this.textNode.element);
+    this.transitionCallbacks = [];
+    this.element.addEventListener('transitionend', () => {
+      while(this.transitionCallbacks.length) {
+        const cb = this.transitionCallbacks.pop();
+        cb();
+      }
+    });
   }
 
   addShape(shape) {
-    this.el.append(shape);
+    this.element.prepend(shape);
   }
 
-  addText(string) {
-    this.textEl = document.createElementNS(this.namespace, 'text');
-    this.textEl.setAttribute('stroke', 'black');
-    this.textEl.setAttribute('x', '25');
-    this.textEl.setAttribute('y', '25');
-    this.textEl.setAttribute('dy', '5');
-    this.textNode = document.createTextNode(string);
-    this.textEl.appendChild(this.textNode);
-    this.el.appendChild(this.textEl);
-  }
-
-  moveTo(position) {
-    this.x = position.x;
-    this.y = position.y;
-    this.el.setAttribute('transform', 'translate(' + this.x + ', ' + this.y + ')');
+  moveTo(position, callback = () => {}) {
+    this.transitionCallbacks.push(callback);
+    this.x = position.hasOwnProperty('x') ? position.x : this.x;
+    this.y = position.hasOwnProperty('y') ? position.y : this.y;
+    this.setAttributes([
+      ['transform', getTransform(this.x, this.y)]
+    ]);
+    return this;
   }
 }
 

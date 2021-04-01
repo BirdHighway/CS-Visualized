@@ -16,6 +16,32 @@ div.footer {
   text-align: center;
 }
 
+div.header-row {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+div.descriptions {
+  margin-bottom: 2rem;
+}
+
+div.descriptions p,
+div.resources ul {
+  font-size: 135%;
+}
+
+.stripe-green {
+  border-left: 4px solid #28a745;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.stripe-blue {
+  border-left: 4px solid #007bff;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 div.svg-container {
   height: 600px;
   border: 1px solid yellow;
@@ -41,6 +67,7 @@ svg text {
   stroke: black;
   alignment-baseline: middle;
   text-anchor: middle;
+  z-index: 999;
 }
 
 svg .fill-red {
@@ -79,4 +106,60 @@ td.gray-out-cell {
   width: 80%;
   margin: 2rem auto;
   display: block;
+}
+
+table.array-table {
+  table-layout: fixed;
+}
+
+table.array-table th,
+table.array-table td {
+  border: 1px solid #333;
+}
+
+table.array-table td {
+  text-align: center;
+}
+
+table.array-table .row-header {
+  text-align: right;
+}
+
+table.array-table td.highlight-cell {
+  background-color: yellow;
+}
+
+#svg-stack {
+  width: 100%;
+  height: 100%;
+}
+
+.col-container {
+  border: 1px solid black;
+  height: 100%;
+  position: relative;
+}
+
+#stack-controls-col {
+  min-height: 600px;
+}
+
+#stack-description {
+  width: 90%;
+  font-size: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin: 1rem auto 8rem auto;
+}
+
+#stack-controls {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.btn-wide {
+  width: 90%;
+  display: block;
+  margin: 1rem auto;
 }

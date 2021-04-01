@@ -8,15 +8,14 @@ class StackVisualization extends React.Component {
   }
 
   componentDidMount() {
+    const rect = this.refSVG.current.getBoundingClientRect();
+    console.log(rect);
+    this.props.initialize();
   }
 
   render() {
     return (
-      <div>
-        <svg ref={this.refSVG} style={{
-          width: '100%'
-        }}/>
-      </div>
+      <svg id='svg-stack' ref={this.refSVG} />
     );
   }
 
