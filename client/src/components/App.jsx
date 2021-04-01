@@ -7,6 +7,8 @@ import {
 } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import HomePage from './pages/home/HomePage';
+import AboutPage from './pages/about/AboutPage';
 import StackPage from './pages/stack/StackPage';
 import QueuePage from './pages/queue/QueuePage';
 
@@ -18,7 +20,7 @@ export default function App() {
           <Navbar />
           <Switch>
             <Route path="/about">
-              <h1>About</h1>
+              <AboutPage />
             </Route>
             <Route path="/queue">
               <QueuePage />
@@ -27,7 +29,7 @@ export default function App() {
               <StackPage />
             </Route>
             <Route path="/">
-              <h1>Home</h1>
+              <HomePage />
             </Route>
           </Switch>
         </div>

@@ -7,6 +7,31 @@
   padding-bottom: 100px;
 }
 
+div.image-row #home-image {
+  background-image: url('images/circuit.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 450px;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+}
+
+div.image-row #about-image {
+  background-image: url('images/data-center.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 350px;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+.basic-image {
+  width: 100%;
+  border-radius: 1rem;
+}
+
 div.footer {
   position: absolute;
   bottom: 0;
@@ -26,8 +51,24 @@ div.descriptions {
 }
 
 div.descriptions p,
-div.resources ul {
+div.resources ul,
+div.descriptions ul {
   font-size: 135%;
+}
+
+.home-descriptions {
+  margin-top: 2rem;
+}
+
+.about-lists-row,
+.home-lists-row {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.about-lists-row h2,
+.home-lists-row h2 {
+  margin-bottom: 1rem;
 }
 
 .stripe-green {
