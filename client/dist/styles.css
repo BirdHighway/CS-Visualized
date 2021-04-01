@@ -4,10 +4,11 @@
 }
 
 #content {
-  padding-bottom: 3rem;
+  padding-bottom: 5rem;
 }
 
 div.footer {
+  background-color: #aaa;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -162,4 +163,30 @@ table.array-table td.highlight-cell {
   width: 90%;
   display: block;
   margin: 1rem auto;
+}
+
+.author-header-row {
+  margin-top: 4rem;
+}
+
+.author-row {
+  margin-top: 2rem;
+}
+
+.author-panel {
+  border: 2px solid #ddd;
+  border-radius: 1rem;
+  background-color: #fefefe;
+  height: 100%;
+  padding: 2rem;
+}
+
+.author-row p,
+.author-row ul {
+  font-size: 135%;
+}
+
+.author-row img {
+  width: 100%;
+  border-radius: 1rem;
 }

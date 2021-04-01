@@ -1,5 +1,7 @@
 import React from 'react';
 import QueueVisualization from './QueueVisualization';
+import Author from '../../shared/Author';
+import { hydeStephen } from '../../../authors';
 
 const QueuePage = () => {
   return (
@@ -42,6 +44,7 @@ const QueuePage = () => {
           <QueueVisualization />
         </div>
       </div>
+      <Author author={hydeStephen}/>
     </React.Fragment>
   );
 };
