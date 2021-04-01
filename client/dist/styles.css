@@ -210,8 +210,12 @@ table.array-table td.highlight-cell {
 }
 
 div.video-header {
-  margin-top: 3rem;
+  margin-top: 5rem;
   margin-bottom: 2rem;
+}
+
+div.video-player {
+  margin-bottom: 5rem;
 }
 
 div.video-container {

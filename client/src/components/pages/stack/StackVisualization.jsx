@@ -9,7 +9,6 @@ class StackVisualization extends React.Component {
 
   componentDidMount() {
     const rect = this.refSVG.current.getBoundingClientRect();
-    console.log(rect);
     this.props.initialize();
   }
 

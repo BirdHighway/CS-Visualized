@@ -11,8 +11,8 @@ const VideoElement = (props) => {
       <div className='row video-player'>
         <div className='col'>
         <div className='video-container'>
-          <img class="ratio" src="http://placehold.it/16x9"/>
-          <iframe width="100%" height="auto" src={props.source} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          <img className="ratio" src="http://placehold.it/16x9"/>
+          <iframe width="100%" height="auto" src={props.source} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         </div>
         </div>
       </div>

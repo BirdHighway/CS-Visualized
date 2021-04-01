@@ -2,7 +2,7 @@ import React from 'react';
 
 const Author = (props) => {
   const interests = props.author.interests.map((interest) => {
-    return <li>{interest}</li>
+    return <li key={interest}>{interest}</li>
   });
   return (
     <React.Fragment>

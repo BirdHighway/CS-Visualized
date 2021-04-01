@@ -43,30 +43,24 @@ class StackPage extends React.Component {
   }
 
   componentDidMount() {
-    console.log('cDM')
     const rect = this.refSVG.current.getBoundingClientRect();
     this.stackOffset = (rect.width - 200) / 2;
     this.initialize();
   }
 
   initialize() {
-    console.log('initialize()');
     this.setDescription('initial', null, () => {
-      console.log('initialize setDescription callback');
       this.push();
     });
   }
 
   setDescription(name, args, callback) {
-    console.log('setDescription');
     this.setState((prevState) => {
       return {
         description: this.descriptions[name](args)
       };
     }, () => {
-      console.log('set Disc callback');
       setTimeout(() => {
-        console.log('setTimeout after setDescription')
         callback();
       }, 2000);
     });
@@ -83,7 +77,6 @@ class StackPage extends React.Component {
   }
 
   push() {
-    console.log('push');
     this.enableButtons(false);
     let nextLetter = this.ALPHABET[this.state.indexLetter];
     this.setDescription('addLetter', nextLetter, () => {
@@ -92,7 +85,6 @@ class StackPage extends React.Component {
   }
 
   doPush() {
-    console.log('push()');
     this.setState((prevState) => {
       const stack = prevState.stack;
       const label = this.ALPHABET[prevState.indexLetter];
@@ -116,7 +108,6 @@ class StackPage extends React.Component {
   }
 
   pop() {
-    console.log('pop');
     this.enableButtons(false);
     let index = this.state.stack.length - 1;
     let item = this.state.stack[index];
@@ -127,7 +118,6 @@ class StackPage extends React.Component {
   }
 
   doPop() {
-    console.log('doPop()');
     let popped;
     this.setState((prevState) => {
       popped = prevState.stack.pop();
