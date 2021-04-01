@@ -19,7 +19,7 @@ const Author = (props) => {
           <div className='author-panel'>
             <p><strong>{props.author.name}</strong></p>
             <p><strong>Location</strong><br />{props.author.location}</p>
-            <p><strong>Github</strong><br /><a href={props.author.github}>{props.author.github}</a></p>
+            <p><strong>Github</strong><br /><a target='_blank' href={props.author.github}>{props.author.github}</a></p>
             <p><strong>Email</strong><br /><a href={'mailto:' + props.author.email}>{props.author.email}</a></p>
           </div>
         </div>
